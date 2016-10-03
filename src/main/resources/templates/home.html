@@ -1,0 +1,93 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Empolyee</title>
+    <style>
+			table, th, td {
+			   border: 1px solid black;
+			   border-spacing: 0px;
+			}
+			th, td {
+				padding: 10px;
+			}
+
+            .displayEmployee h1 {
+                text-align:center;
+            }
+
+            .displayEmployee table {
+                margin:0 auto;
+            }
+
+            .addEmployee h2 {
+                text-align:center;
+            }
+
+            .addEmployee form {
+                text-align:center;
+            }
+
+            .addEmployee input {
+                margin-bottom:20px;
+            }
+            .employeeName {
+                margin-right:10px;
+            }
+
+            .employeeAge {
+                margin-right:20px;
+                margin-bottom:20px;
+            }
+
+            .employeeSalary {
+                margin-right:10px;
+                margin-bottom:20px;
+            }
+
+            .employeeEmail {
+                margin-right:12px;
+                margin-bottom:20px;
+            }
+
+            .submitEmployee {
+                margin:20px;
+            }
+    </style>
+</head>
+<body>
+<div class="displayEmployee">
+    <h1>List Of Employees</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>age</th>
+                <th>salary</th>
+                <th>email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee: ${employeeList}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.age}"></td>
+                <td th:text="${employee.salary}"></td>
+                <td th:text="${employee.email}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="addEmployee">
+    <h2>Add Employee</h2>
+    <form action="addEmployee" method="POST">
+        <span class="employeeName">Name</span><input type="text" id="name" name="name"/><br/>
+        <span class="employeeAge">Age</span><input type="NUMBER" id="age" name="age"/><br/>
+        <span class="employeeSalary">Salary</span><input type="NUMBER" id="salary" name="salary"/><br/>
+        <span class="employeeEmail">Email</span><input type="text" id="email" name="email"/><br/>
+        <input class="submitEmployee" type="submit"/>
+    </form>
+</div>
+</body>
+</html>
